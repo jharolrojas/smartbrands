@@ -50,7 +50,7 @@ const ListService = () => {
                 Lista de <span>Servicios</span>
               </h1>
               <i
-                className="fas fa-user-plus"
+                className="fas fa-user-plus "
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
                 onClick={close}
@@ -78,19 +78,19 @@ const ListService = () => {
                     <td>
                       {" "}
                       <i
-                        className="fas fa-user-edit m-2"
+                        className="fas fa-user-edit m-2 edit"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                         onClick={() => statusForm(service)}
                       ></i>
                       {service.status ? (
                         <i
-                          className="fas fa-user-check"
+                          className="fas fa-user-check on"
                           onClick={() => statusService(service.id)}
                         ></i>
                       ) : (
                         <i
-                          className="fas fa-user-slash"
+                          className="fas fa-user-slash off"
                           onClick={() => statusService(service.id)}
                         ></i>
                       )}

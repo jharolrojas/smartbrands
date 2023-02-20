@@ -102,19 +102,19 @@ const ListLead = () => {
                     <td>{newArrayLead.gender ? "femenino" : "masculino"}</td>
                     <td>
                       <i
-                        className="fas fa-user-edit m-2"
+                        className="fas fa-user-edit m-2 edit"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
                         onClick={() => statusForm(newArrayLead)}
                       ></i>
                       {newArrayLead.negotationStatus ? (
                         <i
-                          className="fas fa-user-check"
+                          className="fas fa-user-check on"
                           onClick={() => statusLead(newArrayLead.id)}
                         ></i>
                       ) : (
                         <i
-                          className="fas fa-user-slash"
+                          className="fas fa-user-slash off"
                           onClick={() => statusLead(newArrayLead.id)}
                         ></i>
                       )}

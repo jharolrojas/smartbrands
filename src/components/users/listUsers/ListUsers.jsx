@@ -107,7 +107,7 @@ const listUsers = () => {
                     <td>
                       {" "}
                       <i
-                        className="fas fa-user-edit m-2"
+                        className="fas fa-user-edit m-2 edit"
                         data-bs-toggle="modal"
                         
                         data-bs-target="#exampleModal"
@@ -115,12 +115,12 @@ const listUsers = () => {
                       ></i>
                       {newArrayUser.status ? (
                         <i
-                          className="fas fa-user-check"
+                          className="fas fa-user-check on"
                           onClick={() => deleteUser(newArrayUser.id)}
                         ></i>
                       ) : (
                         <i
-                          className="fas fa-user-slash"
+                          className="fas fa-user-slash off"
                           onClick={() => deleteUser(newArrayUser.id)}
                         ></i>
                       )}

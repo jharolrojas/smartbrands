@@ -95,6 +95,15 @@ form.register #exampleModalLabel > span {
 #containerNavBar{
   padding: 10px;
 }
+.off{
+  color: red;
+}
+.on{
+  color: green;
+}
+.edit{
+  color: rgb(178, 178, 4);
+}
 @media (min-width: 351px) {
   form.register select {
     max-width: none;
