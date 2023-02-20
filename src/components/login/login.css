@@ -1,0 +1,109 @@
+.container.login {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  font-family: "Nunito", sans-serif;
+}
+
+.container.login > div {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  -webkit-box-shadow: 14px 5px 40px -13px rgba(102, 87, 88, 1);
+  -moz-box-shadow: 14px 5px 40px -13px rgba(102, 87, 88, 1);
+  box-shadow: 14px 5px 40px -13px rgba(102, 87, 88, 1);
+}
+.container-form {
+  width: 100%;
+}
+form.login {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-color: #6695ff;
+
+  padding: 20px;
+}
+
+form.login > div > label {
+  font-size: 1.5em;
+  font-weight: 800;
+}
+.container-input {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+}
+.container-link {
+  display: flex;
+  flex-direction: row;
+
+  font-size: 0.8em;
+
+  margin-bottom: 20px;
+}
+.container-link > p {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+form.login > button {
+  background-color: #284c9f !important;
+  color: #fff;
+  font-weight: 700;
+  border: none !important;
+}
+form.login > button:hover {
+  background-color: #407bfe !important;
+}
+.form-control {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+#img-login-hidden {
+  display: none;
+}
+.errorCredential {
+  color: rgb(190, 39, 39);
+}
+#rigisteUser {
+  cursor: pointer;
+}
+@media (min-width: 800px) {
+  .container.login {
+    max-width: 900px;
+  }
+  .container.login > div {
+    height: 500px;
+  }
+
+  .container-form {
+    width: 400px;
+  }
+  .img-login {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/Marketing-rafiki.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  #img-login-hidden {
+    display: flex;
+  }
+}
