@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import RegisterUser from "../users/registerUser/RegisterUser";
 import useGetData from "../../customHooks/useGetData";
-import { useDispatch } from "react-redux";
 import GetConfig from "../../utils/GetConfig.util";
 
 const Login = () => {
