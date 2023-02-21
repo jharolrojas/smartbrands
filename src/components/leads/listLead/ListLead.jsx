@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import useGetData from "../../../customHooks/useGetData";
 import useConfigDataTable from "../../../customHooks/useConfigDataTable";
 import GetConfig from "../../../utils/GetConfig.util";
+var elem;
 
 const ListLead = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -27,6 +28,7 @@ const ListLead = () => {
     setIsUpdate(lead);
   };
   const statusLead = (id) => {
+    alert("entre en desabilitar");
     axios
       .delete(`${url}/api/v1/lead/status/${id}`, GetConfig())
       .then((res) => getAllLeads())
@@ -42,15 +44,18 @@ const ListLead = () => {
       }
     }
   }
+
+
   const close = () => {
     form.reset();
-    setIsUpdate(false)
+    setIsUpdate(false);
   };
-
   useEffect(() => {
     getAllLeads();
     generateService();
+
   }, []);
+
   return (
     <>
       <div className="container containerList">
@@ -77,29 +82,19 @@ const ListLead = () => {
             >
               <thead>
                 <tr>
+                  <th>opciones</th>
+
                   <th>Nombre</th>
                   <th>Apellido</th>
                   <th>DNI</th>
                   <th>Servicio</th>
                   <th>Estado</th>
                   <th>Genero</th>
-                  <th>opciones</th>
                 </tr>
               </thead>
               <tbody>
                 {newArrayLeads.map((newArrayLead) => (
                   <tr key={newArrayLead.id}>
-                    <td>{newArrayLead.name}</td>
-                    <td>{newArrayLead.lastName}</td>
-                    <td>{newArrayLead.dni}</td>
-                    <td>{newArrayLead.service}</td>
-
-                    <td>
-                      {newArrayLead.negotationStatus
-                        ? "concretado"
-                        : "sin concretado"}
-                    </td>
-                    <td>{newArrayLead.gender ? "femenino" : "masculino"}</td>
                     <td>
                       <i
                         className="fas fa-user-edit m-2 edit"
@@ -115,17 +110,27 @@ const ListLead = () => {
                       ) : (
                         <i
                           className="fas fa-user-slash off"
-                          onClick={() => statusLead(newArrayLead.id)}
+                          onClick={() => alert("presiono")}
+                          id="off"
                         ></i>
                       )}
                     </td>
+                    <td>{newArrayLead.name}</td>
+                    <td>{newArrayLead.lastName}</td>
+                    <td>{newArrayLead.dni}</td>
+                    <td>{newArrayLead.service}</td>
+
+                    <td>
+                      {newArrayLead.negotationStatus
+                        ? "concretado"
+                        : "sin concretado"}
+                    </td>
+                    <td>{newArrayLead.gender ? "femenino" : "masculino"}</td>
+
                     {newArrayLead.id == newArrayLeads[leads.length - 1].id &&
                       datatable()}
-                     
                   </tr>
                 ))}
-                    
-
               </tbody>
             </table>
           </div>

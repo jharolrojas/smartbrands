@@ -17,13 +17,12 @@ const listUsers = () => {
 
   const getAllUsers = () => {
     axios
-      .get(`${url}/api/v1/users`,  GetConfig())
+      .get(`${url}/api/v1/users`, GetConfig())
       .then((res) => {
         setUsers(res.data.data.users);
       })
       .catch((err) => console.log(err.response.data));
   };
-
 
   const usersVendedor = users.filter((user) => user.userRoleId != 1);
   let newArrayUsers = [];
@@ -46,13 +45,13 @@ const listUsers = () => {
   };
   const deleteUser = (id) => {
     axios
-      .delete(`${url}/api/v1/users/${id}`,  GetConfig())
+      .delete(`${url}/api/v1/users/${id}`, GetConfig())
       .then((res) => getAllUsers())
       .catch((err) => console.log(err));
   };
   const close = () => {
     form.reset();
-    setIsUpdate(false)
+    setIsUpdate(false);
   };
   useEffect(() => {
     getAllUsers();
@@ -84,6 +83,8 @@ const listUsers = () => {
             >
               <thead>
                 <tr>
+                  <th>opciones</th>
+
                   <th>Nombre</th>
                   <th>Apellido</th>
                   <th>F. Nacimiento</th>
@@ -91,25 +92,16 @@ const listUsers = () => {
                   <th>DNI</th>
                   <th>Estado</th>
                   <th>Genero</th>
-                  <th>opciones</th>
                 </tr>
               </thead>
               <tbody>
                 {newArrayUsers.map((newArrayUser) => (
                   <tr key={newArrayUser.id}>
-                    <td>{newArrayUser.name}</td>
-                    <td>{newArrayUser.lastName}</td>
-                    <td>{newArrayUser.birthDate}</td>
-                    <td>{newArrayUser.type}</td>
-                    <td>{newArrayUser.identificationNumber}</td>
-                    <td>{newArrayUser.status ? "activo" : "deshabilitado"}</td>
-                    <td>{newArrayUser.gender ? "femenino" : "masculino"}</td>
-                    <td>
+                      <td>
                       {" "}
                       <i
                         className="fas fa-user-edit m-2 edit"
                         data-bs-toggle="modal"
-                        
                         data-bs-target="#exampleModal"
                         onClick={() => statusForm(newArrayUser)}
                       ></i>
@@ -125,6 +117,14 @@ const listUsers = () => {
                         ></i>
                       )}
                     </td>
+                    <td>{newArrayUser.name}</td>
+                    <td>{newArrayUser.lastName}</td>
+                    <td>{newArrayUser.birthDate}</td>
+                    <td>{newArrayUser.type}</td>
+                    <td>{newArrayUser.identificationNumber}</td>
+                    <td>{newArrayUser.status ? "activo" : "deshabilitado"}</td>
+                    <td>{newArrayUser.gender ? "femenino" : "masculino"}</td>
+                  
                     {newArrayUser.id ==
                       usersVendedor[usersVendedor.length - 1].id && datatable()}
                   </tr>

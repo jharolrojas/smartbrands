@@ -34,7 +34,7 @@ const ListService = () => {
   };
   const close = () => {
     form.reset();
-    setIsUpdate(false)
+    setIsUpdate(false);
   };
   useEffect(() => {
     getAllServices();
@@ -65,17 +65,16 @@ const ListService = () => {
             >
               <thead>
                 <tr>
+                  <th>opciones</th>
+
                   <th>Description</th>
                   <th>Estado</th>
-                  <th>opciones</th>
                 </tr>
               </thead>
               <tbody>
                 {services.map((service) => (
                   <tr key={service.id}>
-                    <td>{service.description}</td>
-                    <td>{service.status ? "activo" : "desactivado"}</td>
-                    <td>
+                      <td>
                       {" "}
                       <i
                         className="fas fa-user-edit m-2 edit"
@@ -95,6 +94,9 @@ const ListService = () => {
                         ></i>
                       )}
                     </td>
+                    <td>{service.description}</td>
+                    <td>{service.status ? "activo" : "desactivado"}</td>
+                  
                     {service.id == services[services.length - 1].id &&
                       datatable()}
                   </tr>
