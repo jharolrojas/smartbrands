@@ -28,7 +28,7 @@ const ListLead = () => {
     setIsUpdate(lead);
   };
   const statusLead = (id) => {
-    alert("entre en desabilitar");
+
     axios
       .delete(`${url}/api/v1/lead/status/${id}`, GetConfig())
       .then((res) => getAllLeads())
@@ -110,7 +110,7 @@ const ListLead = () => {
                       ) : (
                         <i
                           className="fas fa-user-slash off"
-                          onClick={() => alert("presiono")}
+                          onClick={() =>statusLead(newArrayLead.id)}
                           id="off"
                         ></i>
                       )}
